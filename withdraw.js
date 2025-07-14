@@ -1,129 +1,71 @@
-// WITHDRAW AND WITHDRAW WITH TOTAL BALANCE SEGMENT START
+// set event handler for click button of withdraw
+document.getElementById("btn-withdraw").addEventListener("click", function () {
+	// getting input id
+	const userInputWithdraw = document.getElementById("user-input-withdraw");
 
+	// getting input's value
+	const userInputWithdrawValueString = userInputWithdraw.value;
 
+	// converting to float number for (getting input's value)
+	const userInputWithdrawValue = parseFloat(userInputWithdrawValueString);
 
-    // set event handler for click button of withdraw
-    document.getElementById('btn-withdraw').addEventListener('click',function (){
+	// clearing input field after show
 
-        
-        
-        // STEP 1-------WORKING ON USER INPUT FIELD------
+	userInputWithdraw.value = "";
 
-        // getting input id
-        const userInputWithdraw = document.getElementById("user-input-withdraw");
-    
-        // getting input's value
-        const userInputWithdrawValueString = userInputWithdraw.value;
-    
-        // converting to float number for (getting input's value)
-        const  userInputWithdrawValue = parseFloat(userInputWithdrawValueString);
+	// validation for user input is number or not
 
+	if (userInputWithdrawValue < 0 || userInputWithdrawValue === 0) {
+		alert("Please enter correct amount");
+		return;
+	}
 
-        // clearing input field after show
+	if (isNaN(userInputWithdrawValue)) {
+		alert("Not a number");
+		return;
+	}
 
-        userInputWithdraw.value = '';
+	// getting withdraw's initial h1 tag
 
+	const initialH1TagOfWithdraw = document.getElementById(
+		"initial-h1-tag-of-withdraw"
+	);
 
+	// getting string inner text of this
 
-        // validation for user input is number or not
+	const innerTextOfWithdrawString = initialH1TagOfWithdraw.innerText;
 
-        if(userInputWithdrawValue < 0 || userInputWithdrawValue === 0 ){
-            alert ("PLEASE ENTER CORRECT AMOUNT");
-            return;
-        }
+	// converting to float
 
-        if(isNaN(userInputWithdrawValue)){
-            alert ("NOT A NUMBER");
-            return;
-        }
+	const innerTextOfWithdraw = parseFloat(innerTextOfWithdrawString);
 
-       
-    
-       
-        //-----------------------------------------------------------------------
-        
-        // STEP 2 ------WORKING ON WITHDRAW FIELD------
+	// getting balance id
 
+	const beforeTotalBalance2ndTime = document.getElementById(
+		"before-total-balance"
+	);
 
-        // getting withdraw's initial h1 tag
-    
-        const initialH1TagOfWithdraw = document.getElementById('initial-h1-tag-of-withdraw');
-    
-        // getting string innertext of this
-        
-        const innerTextOfWithdrawString = initialH1TagOfWithdraw.innerText;
-    
-        // converting to float
-    
-        const innerTextOfWithdraw = parseFloat(innerTextOfWithdrawString);
-    
-     
-  
-    
-    // // STEP 3 --------- MAKING INTERACTIVITY (SUM) with USER INPUT AND WITHDRAW FIELD
+	const beforeTotalBalance2ndTimeString = beforeTotalBalance2ndTime.innerText;
 
+	const newTotalBalanceField = parseFloat(beforeTotalBalance2ndTimeString);
 
-    // const newFigureOfWithdrawField = innerTextOfWithdraw + userInputWithdrawValue;
-     
-    // // changing face of withdraw box
-    // initialH1TagOfWithdraw.innerText =  newFigureOfWithdrawField;
+	// validation of user input and total balance
 
+	if (userInputWithdrawValue > newTotalBalanceField) {
+		alert("Insufficient Fund");
+		return;
+	}
 
-      
-   
+	const newFigureOfWithdrawField = innerTextOfWithdraw + userInputWithdrawValue;
 
+	// changing face of withdraw box
+	initialH1TagOfWithdraw.innerText = newFigureOfWithdrawField;
 
-    // STEP 4 --------- WORKING ON BALANCE FIELD FOR SUM AND SUB THE BALANCE
+	// doing sum and sub with previous balance and withdraw balance
 
+	const afterCalculationBalance = newTotalBalanceField - userInputWithdrawValue;
 
-    // getting balance id
+	// changing face of balance box
 
-    const beforeTotalBalance2ndTime = document.getElementById('before-total-balance');
-
-    const beforeTotalBalance2ndTimeString = beforeTotalBalance2ndTime.innerText;
-
-    const newTotalBalanceField = parseFloat(beforeTotalBalance2ndTimeString );
-
-
-    // validation of user input and total balance
-
-    if (userInputWithdrawValue>newTotalBalanceField){
-        alert("INSUFFICIENT FUND");
-        return;
-    }
-
-
-
-    // STEP 3 --------- MAKING INTERACTIVITY (SUM) with USER INPUT AND WITHDRAW FIELD
-
-
-    const newFigureOfWithdrawField = innerTextOfWithdraw + userInputWithdrawValue;
-     
-    // changing face of withdraw box
-    initialH1TagOfWithdraw.innerText =  newFigureOfWithdrawField;
-
-
-
-
-
-
-
-    // doing sum and sub with previous balance and withdraw balance
-
-    const afterCalculationBalance = newTotalBalanceField-userInputWithdrawValue;
-
-    // changing face of balance box
-
-    beforeTotalBalance2ndTime.innerText = afterCalculationBalance;
-
-
-  
-    
-    
-    
-})
-    
-    
-    
-
-    
+	beforeTotalBalance2ndTime.innerText = afterCalculationBalance;
+});

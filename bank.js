@@ -1,115 +1,50 @@
+// For Deposit
+document.getElementById("btn-deposit").addEventListener("click", function () {
+	const inputForDeposit = document.getElementById("input-for-deposit");
 
+	// input er value
+	const inputForDepositValue = inputForDeposit.value;
 
-// FOR DEPOSIT
+	const depositAmountBefore = document.getElementById("deposit-amount-before");
 
-document.getElementById('btn-deposit').addEventListener('click', function(){
+	// converting as parseFloat
+	const depositAmountBeforeConverted = parseFloat(
+		depositAmountBefore.innerText
+	);
 
-    const inputForDeposit = document.getElementById('input-for-deposit');
-        
-    // input er value
-    const inputForDepositValue = inputForDeposit.value;
-        
-    // (get korlam) deposit h3 tag er 00 er ghor 
-    const depositAmountBefore = document.getElementById('deposit-amount-before');
+	const inputForDepositValueConverted = parseFloat(inputForDepositValue);
 
+	inputForDeposit.value = "";
 
-    // converting as parseFloat
-    const depositAmountBeforeConverted = parseFloat(depositAmountBefore.innerText);
+	// validation user input number or not
 
-    const inputForDepositValueConverted = parseFloat(inputForDepositValue);
-    
-    //(set korbo)
+	if (
+		inputForDepositValueConverted < 0 ||
+		inputForDepositValueConverted === 0
+	) {
+		alert("Please enter correct amount");
+		return;
+	}
 
+	if (isNaN(inputForDepositValueConverted)) {
+		alert("Not a number");
+		return;
+	}
 
-    // kaj hobar por input field clear korte +++ validation er age korlam tobe er cheye age bosano jabe na tahole agei clear hoye jabe
-    inputForDeposit.value ='';
+	const newTotalValueOfDeposit =
+		depositAmountBeforeConverted + inputForDepositValueConverted;
+	depositAmountBefore.innerText = newTotalValueOfDeposit;
 
+	// Balance step
 
-    // validation user input number or not 
+	const beforeTotalBalance = document.getElementById("before-total-balance");
 
-    if(inputForDepositValueConverted < 0 || inputForDepositValueConverted === 0 ){
-        alert ("PLEASE ENTER CORRECT AMOUNT");
-        return;
-    }
+	const beforeTotalBalanceValue = beforeTotalBalance.innerText;
 
-    if(isNaN(inputForDepositValueConverted)){
-        alert("NOT A NUMBER");
-        return;
-    }
+	const beforeTotalBalanceValueConverted = parseFloat(beforeTotalBalanceValue);
 
-    
-  
-    const newTotalValueOfDeposit = depositAmountBeforeConverted + inputForDepositValueConverted; // balachi 2
-    depositAmountBefore.innerText = newTotalValueOfDeposit; //BABACHI
-    
-    
-    
-    
+	const newBalanceTotal =
+		beforeTotalBalanceValueConverted + inputForDepositValueConverted;
 
-   // BALANCE STEP
-
-
- const beforeTotalBalance = document.getElementById('before-total-balance');      
-
- const beforeTotalBalanceValue=  beforeTotalBalance.innerText;
-
- const beforeTotalBalanceValueConverted = parseFloat(beforeTotalBalanceValue);
-
-
- //(Set Korlam)
-
- const newBalanceTotal = beforeTotalBalanceValueConverted + inputForDepositValueConverted;
-
- beforeTotalBalance.innerText = newBalanceTotal;
-
-
-// TOTAL BALANCE WITH DEPOSIT SEGMENT DONE 
-
-})
-
-
-
-
-
-// // WITHDRAW AND WITHDRAW WITH TOTAL BALANCE SEGMENT START
-
-
-
-//     // set event handler for click button of withdraw
-// document.getElementById('btn-withdraw').addEventListener('click',function (){
-
-//     // getting input id
-//     const userInputWithdraw = document.getElementById("user-input-withdraw");
-
-//     // getting input's value
-//     const userInputWithdrawValueString = userInputWithdraw.value;
-
-//     // converting to float number for (getting input's value)
-//     const  userInputWithdrawValue = parseFloat(userInputWithdrawValueString);
-
-   
-//     //-----------------------------------------------------------------------
-
-//     // getting withdraw's initial h1 tag
-
-//     const initialH1TagOfWithdraw = document.getElementById('initial-h1-tag-of-withdraw');
-
-//     // getting string innertext of this
-    
-//     const innerTextOfWithdrawString = initialH1TagOfWithdraw.innerText;
-
-//     // converting to float
-
-//     const innerTextOfWithdraw = parseFloat(innerTextOfWithdrawString);
-
- 
-//     //const newFaceOfWithdrawBox = innerTextOfWithdraw.innerText= userInputWithdrawValue;
-
-
-
-
-
-
-// })
-
-
+	beforeTotalBalance.innerText = newBalanceTotal;
+});

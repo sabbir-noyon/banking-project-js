@@ -1,72 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BPR Bank</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-800">
-    <header>
-        <h1 class="text-center mt-10 text-4xl font-bold text-white">Lets Get <span class="text-white">Money!</span></h1>
-    </header>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>BPR Bank</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+	</head>
+	<body class="bg-gray-800">
+		<header>
+			<h4 class="text-center mt-10 text-3xl font-normal text-white">
+				Your money. <span class="text-white">Our responsibility.</span>
+			</h4>
+		</header>
 
-    <main>
-        <section class="mt-5">
-            <div class="containter  w-9/12 mx-auto grid grid-cols-3 gap-3 ">
-                <div class="bg-red-400 p-8 rounded-lg">
-                    <h2 class="text-xl text-center text-white font-semibold">Deposit</h2>
-                    <h1 class="text-4xl text-center text-blue-950 font-semibold">$<span id="deposit-amount-before">00</span></h1>
+		<main>
+			<section class="mt-10">
+				<div class="containter w-9/12 mx-auto grid grid-cols-3 gap-3">
+					<div class="bg-red-400 p-8 rounded-lg">
+						<h2 class="text-xl text-center text-white font-semibold">
+							Deposit
+						</h2>
+						<h1 class="text-4xl text-center text-blue-950 font-semibold">
+							$<span id="deposit-amount-before">00</span>
+						</h1>
+					</div>
 
-                </div>
+					<div class="bg-amber-500 p-8 rounded-lg">
+						<h2 class="text-xl text-center text-white font-semibold">
+							Withdraw
+						</h2>
+						<h1 class="text-4xl text-center text-blue-950 font-semibold">
+							$<span id="initial-h1-tag-of-withdraw">00</span>
+						</h1>
+					</div>
 
-                <div class="bg-amber-500 p-8 rounded-lg">
-                    <h2 class="text-xl text-center text-white font-semibold">Withdraw</h2>
-                    <h1 class="text-4xl text-center text-blue-950 font-semibold" >$<span id="initial-h1-tag-of-withdraw">00</span></h1>
+					<div class="bg-blue-500 p-8 rounded-lg">
+						<h2 class="text-xl text-center text-white font-semibold">
+							Balance
+						</h2>
+						<h1 class="text-4xl text-center text-blue-950 font-semibold">
+							$<span id="before-total-balance">********</span>
+						</h1>
+					</div>
+				</div>
+			</section>
 
-                </div>
+			<section class="mt-4">
+				<div class="container w-10/12 my-0 mx-auto grid grid-cols-2 gap-3">
+					<div class="bg-teal-700 p-10 rounded-lg">
+						<h3 class="text-xl mb-3 font-medium text-white">Please Deposit</h3>
+						<input
+							id="input-for-deposit"
+							class="block w-9/12 rounded-lg px-2 py-1"
+							type="text"
+							placeholder="$ You Want to Deposit"
+						/>
+						<!-- deposit button click -->
+						<button
+							id="btn-deposit"
+							class="bg-cyan-950 hover:bg-orange-800 text-white rounded-lg py-2 px-3 mt-2"
+							type="submit"
+						>
+							Deposit
+						</button>
+					</div>
 
-                <div class="bg-blue-500 p-8 rounded-lg">
-                    <h2 class="text-xl text-center text-white font-semibold">Balance</h2>
-                    <h1 class="text-4xl text-center text-blue-950 font-semibold" >$ <span id="before-total-balance">1000</span></h1>
+					<div class="bg-teal-700 p-10 rounded-lg">
+						<h3 class="text-xl mb-3 font-medium text-white">Please Withdraw</h3>
+						<input
+							id="user-input-withdraw"
+							class="block w-9/12 rounded-lg px-2 py-1"
+							type="text"
+							placeholder="$ You Want to Withdraw"
+						/>
+						<button
+							id="btn-withdraw"
+							class="bg-cyan-950 hover:bg-orange-800 text-white rounded-lg py-2 px-3 mt-2"
+							type="submit"
+						>
+							Withdraw
+						</button>
+					</div>
+				</div>
+			</section>
+		</main>
 
-                </div>
-               
-            </div>
+		<footer></footer>
 
-        </section>
-
-        <section class=" mt-4">
-            <div class="container w-10/12 my-0 mx-auto grid grid-cols-2 gap-3">
-
-                <div class="bg-teal-700 p-10 rounded-lg">
-                    <h3 class="text-xl mb-3 font-medium text-white">Please Deposit</h3>
-                    <input id="input-for-deposit" class="block w-9/12 rounded-lg px-2 py-1" type="text" placeholder="$ You Want to Deposit" >
-                    <!-- deposit button click -->
-                    <button id="btn-deposit" class= "bg-cyan-950 hover:bg-orange-800  text-white rounded-lg py-2 px-3 mt-2" type="submit">Deposit</button>
-                </div>
-
-                <div class="bg-teal-700 p-10 rounded-lg">
-                    <h3 class="text-xl mb-3 font-medium text-white">Please Withdraw</h3>
-                    <input id="user-input-withdraw" class="block w-9/12 rounded-lg px-2 py-1" type="text" placeholder="$ You Want to Withdraw">
-                    <button id="btn-withdraw" class= "bg-cyan-950 hover:bg-orange-800  text-white rounded-lg py-2 px-3 mt-2" type="submit">Withdraw</button>
-                </div>
-
-            </div>
-
-
-
-        </section>
-
-
-
-    </main>
-
-    <footer>
-
-    </footer>
-
-  <script src="bank.js"></script>
-  <script src="withdraw.js"></script>
-</body>
+		<script src="bank.js"></script>
+		<script src="withdraw.js"></script>
+	</body>
 </html>
